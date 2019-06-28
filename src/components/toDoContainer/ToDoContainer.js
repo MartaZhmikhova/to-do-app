@@ -19,17 +19,14 @@ export class ToDoContainer extends React.Component {
     this.state = {
       items: items,
     };
-    this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.compleateItem = this.compleateItem.bind(this);
   }
   deleteItem=(id)=>{
-    const {items} = this.state;
-    const isNotId = item => item.id !== id;
-    const updateList = items.filter(isNotId);
-    this.setState({
-      items: updateList
-    });
+    const { items } = this.state;
+    items.splice(item => item.id, 1);
+    this.setState({ items });
+    
   }
   addItem = (item) =>{
     const {items} = this.state;
@@ -45,9 +42,7 @@ export class ToDoContainer extends React.Component {
   compleateItem = (item) =>{
     const {items} = this.state;
     
-    item.isCompleted 
-      ? item.isCompleted = false
-      : item.isCompleted = true
+    item.isCompleted = !item.isCompleted 
 
     this.setState({
       items

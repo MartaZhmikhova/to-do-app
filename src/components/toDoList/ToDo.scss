@@ -21,6 +21,11 @@
         font-weight: 600;
         color: #000;
         margin: 0 20px;
+
+        &--completed{
+            text-decoration: line-through;
+            color: grey;
+        }
     }
 
     &-button{
